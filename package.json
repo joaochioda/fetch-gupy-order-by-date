@@ -1,0 +1,14 @@
+{
+  "name": "fetch-gupy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "read-data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.1"
+  }
+}
