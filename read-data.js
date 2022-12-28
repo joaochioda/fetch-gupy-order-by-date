@@ -1,5 +1,5 @@
 const axios = require("axios");
-
+const dateNow = "2022-12-28T00:00:00.000Z";
 const fetchVagas = () => {
   return axios
     .get(
@@ -13,13 +13,15 @@ const fetchVagas = () => {
 (async () => {
   const vagas = await fetchVagas();
   const vagasOrdenadas = vagas.data.sort(publishedDate);
-  console.log("-------------------------------------------");
 
   for (let i = 0; i < 10; i++) {
-    console.log(`name: ${vagasOrdenadas[i].name}`);
-    console.log(`url: ${vagasOrdenadas[i].jobUrl}`);
-    console.log(`publishedDate: ${vagasOrdenadas[i].publishedDate}`);
-    console.log("-------------------------------------------");
+    if (vagasOrdenadas[i].publishedDate > dateNow) {
+      console.log("-------------------------------------------");
+      console.log(`name: ${vagasOrdenadas[i].name}`);
+      console.log(`url: ${vagasOrdenadas[i].jobUrl}`);
+      console.log(`publishedDate: ${vagasOrdenadas[i].publishedDate}`);
+      console.log("-------------------------------------------");
+    }
   }
 })();
 
